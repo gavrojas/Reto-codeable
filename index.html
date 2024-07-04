@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+  <title>Mis notas</title>
+</head>
+<body>
+  <header>
+    <h1>Mis notas</h1>
+  </header>
+  <main>
+    <div class="container-principal">
+      <form id="form" action="">
+        <label for="new-note">Escribe acá tu nota: </label>
+        <textarea id="new-note" name="new-note"  placeholder="Algo para recordar..."></textarea>
+        <button id="btn-create-note" type="submit" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+          <g clip-path="url(#clip0_9828_10)">
+            <path d="M10.5 20.5C10.5 20.8978 10.658 21.2794 10.9393 21.5607C11.2206 21.842 11.6022 22 12 22C12.3978 22 12.7794 21.842 13.0607 21.5607C13.342 21.2794 13.5 20.8978 13.5 20.5V14H20C20.3978 14 20.7794 13.842 21.0607 13.5607C21.342 13.2794 21.5 12.8978 21.5 12.5C21.5 12.1022 21.342 11.7206 21.0607 11.4393C20.7794 11.158 20.3978 11 20 11H13.5V4.5C13.5 4.10218 13.342 3.72064 13.0607 3.43934C12.7794 3.15804 12.3978 3 12 3C11.6022 3 11.2206 3.15804 10.9393 3.43934C10.658 3.72064 10.5 4.10218 10.5 4.5V11H4C3.60218 11 3.22064 11.158 2.93934 11.4393C2.65804 11.7206 2.5 12.1022 2.5 12.5C2.5 12.8978 2.65804 13.2794 2.93934 13.5607C3.22064 13.842 3.60218 14 4 14H10.5V20.5Z" fill="#FEFEFE"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_9828_10">
+              <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+            </clipPath>
+          </defs>
+        </svg>Crear</button>
+      </form>
+      <ul class="list-notes has-scrollbar" id="list">
+      </ul>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
