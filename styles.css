@@ -7,6 +7,8 @@
   --Gray-6: #F2F2F2;
   --new-white: #FFFCFC;
   --error: #E96262;
+  --blue: #62B0E9;
+  --green: #5D8456;
 }
 
 * {
@@ -20,8 +22,6 @@
 
 *, *::before, *::after{box-sizing: border-box;}
 
-p{text-wrap: pretty;}
-h1, h2, h3, h4{text-wrap: balance;}
 
 body {
   min-height: 100dvh;
@@ -33,6 +33,16 @@ header{
   color: var(--Gray-1);
   text-align: center;
   padding: 32px 0 16px;
+}
+
+.sticky {
+  position: fixed;
+  /* top: 0; */
+  left: 0;
+  width: 100%;
+  /* background-color: #ffffff; /* Color de fondo del header */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Sombra opcional */
+  z-index: 1000; /* Número alto para estar por encima de otros elementos */
 }
 
 h1{
@@ -58,15 +68,23 @@ main{
   gap: 16px;
   width: 100%;
   max-width: 375px;
+  /* padding-top: 80px; */
 }
 
 form{
   width: 100%;
+  max-width: calc(375px - 32px);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   align-self: stretch;
+}
+
+#form{
+  /* position: fixed; */
+  top: 80px;
+  z-index: 999;
 }
 
 form label{
@@ -126,6 +144,7 @@ form button {
 
 .list-notes{
   width: 100%;
+  /* position: sticky; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,6 +153,7 @@ form button {
   max-height: 500px;
   overflow-y: auto;
   overflow-x: hidden;
+  /* padding-top: calc(48px + 208px); */
   /* Estilos scrollbar */
   /* scrollbar-color: var(--Gray-4, #BDBDBD) transparent;
   scrollbar-width: thin; */
@@ -179,12 +199,21 @@ form button {
   margin-right: -6px;
 }
 
-.note p{
+.note p,
+.note input{
   align-self: stretch;
   color: var(--Gray-1);
   font-size: 24px;
   font-weight: 400;
   line-height: 120%; /* 28.8px */
+}
+
+.note p{
+  border: 1px solid transparent; /* Borde delgado inicialmente transparente */
+}
+
+#editable{
+  border: solid 1px var(--Gray-4);
 }
 
 .buttons{
@@ -194,12 +223,13 @@ form button {
 }
 
 .option{
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   border: 1px solid var(--Gray-2);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: none;
 }
 
 .pink{
@@ -215,7 +245,10 @@ form button {
 }
 
 
-.note .delete{
+.note .delete,
+.note .edit,
+.note .save,
+.note .cancel{
   display: flex;
   padding: 4px 16px;
   justify-content: center;
@@ -223,22 +256,42 @@ form button {
   gap: 8px;
   border-radius: 16px;
   border: none;
-  background: var(--Gray-5);
-  color: var(--Gray-2);
+  color: var(--new-white);
   text-align: center;
   font-size: 18px;
   font-weight: 700;
-  line-height: 120%; /* 21.6px */
   cursor: pointer;
 }
 
-.delete:hover{
+.note .delete,
+.note .cancel{
   background-color: var(--error);
-  color: var(--new-white);
 }
 
-.delete:hover svg path{
+.delete svg path{
   fill: var(--new-white);
 }
 
+.delete:hover{
+  background: var(--Gray-5);
+  color: var(--Gray-2);
+}
 
+.note .edit{
+  background-color: var(--blue);
+}
+
+.note .save{
+  background-color: var(--green);
+}
+
+
+.edit-mode .option,
+.edit-mode .delete,
+.edit-mode .edit {
+  display: none;
+}
+
+.note .hide{
+  display: none;
+}
