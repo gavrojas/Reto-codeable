@@ -7,8 +7,11 @@
   --Gray-6: #F2F2F2;
   --new-white: #FFFCFC;
   --error: #E96262;
+  --error-hover: #B24B4B;
   --blue: #62B0E9;
+  --blue-hover: #4F8FBD;
   --green: #5D8456;
+  --green-hover: #486643;
 }
 
 * {
@@ -272,17 +275,26 @@ form button {
   fill: var(--new-white);
 }
 
-.delete:hover{
-  background: var(--Gray-5);
-  color: var(--Gray-2);
+.delete:hover,
+.cancel:hover{
+  background: var(--error-hover);
+  color: var(--new-white);
 }
 
 .note .edit{
   background-color: var(--blue);
 }
 
+.note .edit:hover{
+  background-color: var(--blue-hover);
+}
+
 .note .save{
   background-color: var(--green);
+}
+
+.note .save:hover{
+  background-color: var(--green-hover);
 }
 
 
